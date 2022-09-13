@@ -17,15 +17,17 @@ Pour fonctionner, le programme a besoin de:
   python main.py -p nom_de_votre_fichier_pdb
   ```
   D'autre arguments peuvent étre donner pour plus de personnalisation telle que:
-    - Pour le nombre de points par atome
+   - Pour le nombre de points par atome
+    
     ```
         python main.py -p nom_de_votre_fichier_pdb -d 100
      ```
-    - Pour le rayon de la sonde
+   - Pour le rayon de la sonde
+    
     ```
         python main.py -p nom_de_votre_fichier_pdb -r 1.5
     ```
-    - Pour le modèle à tester. Cet argument ne sert qu'au fichier pdb obtenue par NMR.
+  - Pour le modèle à tester. Cet argument ne sert qu'au fichier pdb obtenue par NMR.
     ```
         python main.py -p nom_de_votre_fichier_pdb -d 100 -m 1
     ```
