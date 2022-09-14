@@ -21,15 +21,15 @@ To work the program need:
   Others arguments may be use:
    - For the number of point by atom
 ```
-    python main.py -p nom_de_votre_fichier_pdb -d 100
+    python main.py -p file.pdb -d 100
 ```
    - For the radius of the probe
 ```
-        python main.py -p nom_de_votre_fichier_pdb -r 1.5
+        python main.py -p file.pdb -r 1.5
 ```
   - For the model to test. Only use this argument when your file was obtain by NMR 
     ```
-        python main.py -p nom_de_votre_fichier_pdb -d 100 -m 1
+        python main.py -p file.pdb -d 100 -m 1
     ```
 
 # References
