@@ -7,8 +7,8 @@ import sys
 
 def parse_argument():
     """Get the arguments of the commands in the terminal"""
-    parser = argparse.ArgumentParser(description="Calcul de la surface \
-                                            accessible d'une protéine")
+    parser = argparse.ArgumentParser(description="Calculating ASA of the \
+                                                  protein")
     parser.add_argument("-p", dest="pdb", help="Name of the file pdb", nargs=1)
     parser.add_argument("-d", dest="nbr", help="Number of points by atoms. \
                         By default 92 points", nargs="?", default=92, type=int)
