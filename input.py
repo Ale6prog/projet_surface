@@ -9,15 +9,14 @@ def parse_argument():
     """Get the arguments of the commands in the terminal"""
     parser = argparse.ArgumentParser(description="Calcul de la surface \
                                             accessible d'une protéine")
-    parser.add_argument("-p", dest="pdb", help="Nom du fichier pdb", nargs=1)
-    parser.add_argument("-d", dest="nbr", help="Nombre de points par atome. \
-                        Par défaut 92 points", nargs="?", default=92, type=int)
-    parser.add_argument("-r", dest="probe", help="Rayon de la sonde. Par \
-                        défaut 1.4 A",
+    parser.add_argument("-p", dest="pdb", help="Name of the file pdb", nargs=1)
+    parser.add_argument("-d", dest="nbr", help="Number of points by atoms. \
+                        By default 92 points", nargs="?", default=92, type=int)
+    parser.add_argument("-r", dest="probe", help="Radius of the probe. By \
+                        default 1.4 A",
                         nargs="?", default=1.4, type=int)
-    parser.add_argument("-m", dest="modele", help="Numéro du modèle à tester. \
-                        Par défaut n°1. A utiliser pour les structures \
-                        obtenues par RMN",
+    parser.add_argument("-m", dest="modele", help="Number of the model to test. \
+                        By default 1. Only use for structure obtain by RMN",
                         nargs="?", default=0, type=int)
     return parser.parse_args()
 
