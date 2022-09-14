@@ -20,10 +20,9 @@ To work the program need:
 ```
   Others arguments may be use:
    - For the number of point by atom
-    
-    ```
-        python main.py -p nom_de_votre_fichier_pdb -d 100
-     ```
+```
+    python main.py -p nom_de_votre_fichier_pdb -d 100
+```
    - For the radius of the probe
     
     ```
