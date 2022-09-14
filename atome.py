@@ -1,4 +1,4 @@
-"""Objets représentant un atome."""
+"""Objects representing an atom."""
 import numpy as np
 RAYON = {"H": 1.20, "C": 1.70, "N": 1.55, "O": 1.4, "F": 1.47,
          "NA": 2.27, "MG": 1.73, "SI": 2.1, "P": 1.8, "S": 1.8,
@@ -8,17 +8,17 @@ RAYON = {"H": 1.20, "C": 1.70, "N": 1.55, "O": 1.4, "F": 1.47,
 
 
 class Atome:
-    """Objet Atome."""
+    """An atom."""
 
     def __init__(self, numero, residu, coordone, element, nbr):
-        """Objet représentant un atome ainsi que ces propirétés.
+        """Objects representing an atom and his properties.
 
         Args:
-            num (str): Numéro du résidu et de la chaine
-            residu (str): Code à 3 lettre du résidu
-            coordone (array): Coordonnées du centre
-            element (str): Element de l'atome
-            nbr (int): Nombre de points par atome
+            num (str): Number and chain of the residue
+            residu (str): 3 letter code
+            coordone (array): Coordinates of the center
+            element (str): Element of the atom
+            nbr (int): Number of point by atome
         """
         self.num = numero
         self.residu = residu
@@ -31,43 +31,43 @@ class Atome:
         self.list_occupe = np.array([0 for i in range(nbr)])
 
     def set_rayon(self):
-        """Set le rayon selon son élement."""
+        """Set the radius by his element."""
         if self.element in RAYON:
             self.rayon = RAYON[self.element]
 
     def set_list_position(self, pos):
-        """Set le array des positions de chaque points.
+        """Set le array of positions of each points.
 
         Args:
-            pos (list): liste des positions des points
+            pos (list): list of positions of the points
         """
         self.list_position = np.array(pos)
 
     def set_surface(self):
-        """Set la surface."""
+        """Set the surface."""
         self.surface = (((4 * np.pi) / (len(self.list_occupe))) *
                         ((self.rayon+1.4)**2)) * self.compte_libre()
 
     def compte_libre(self):
-        """Compte le nombre de points non enfouie.
+        """Count the number of free points..
 
         Returns:
-            int: Nombre de points libres
+            int: Number of free points
         """
         return len(self.list_occupe)-(sum(self.list_occupe))
 
     def compte_pris(self):
-        """Compte le nombre de points enfouie.
+        """Count the number of buried points.
 
         Returns:
-            int: Nombre de points enfouie
+            int: Number of buried points
         """
         return (len(self.list_occupe)) - self.compte_libre(self)
 
     def set_occupe(self, k):
-        """Set une position de la liste comme occupe.
+        """Set a position in the list as buried.
 
         Args:
-            k (int): Position de la liste
+            k (int): Position in the list
         """
         self.list_occupe[k] = 1

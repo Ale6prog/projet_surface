@@ -1,16 +1,16 @@
-"""Calcul de l'enfouissement de chaque point des atomes."""
+"""Calculate the buried points of each atoms."""
 import math
 import rich.table
 import rich.progress
 
 
 def shrake_rupley(data, nbr, probe):
-    """Algorithme de shrake_rupley.
+    """algorithm of Shrake-rupley.
 
     Args:
-        data (List): Liste des atomes
-        nbr (int): Nombre des points sur un atome
-        probe (float): Rayon de la sond
+        data (List): List of atoms
+        nbr (int): Number of point by atome
+        probe (float): Radius of the probe
     """
     print("||Calculating accessible surface of each atoms||")
     for atom in rich.progress.track(data, description='[green]Calculating'):
@@ -25,28 +25,28 @@ def shrake_rupley(data, nbr, probe):
 
 
 def detect_voisin(data, centre):
-    """Retourne une liste contenant le numéro des atomes voisins.
+    """Return a list of neighbour atoms of an atom.
 
     Args:
-        data (List): Liste des atomes
-        centre (array): Array des coordonnées de points
+        data (List): List of atomes
+        centre (array): Array of the coordinate of a center
 
     Returns:
-        list: Liste des numéros des atomes voisins
+        list: List of number of neighbour atoms
     """
     return [i for i in range(len(data)) if math.dist(centre.coordone,
             data[i].coordone)]
 
 
 def surface_residue(data):
-    """Retourne un dictionnaire contenant la surface de chaque résidus.
+    """Return a dictionnary contaning the surface of each residue.
 
     Args:
-        data (list): Liste des atomes
+        data (list): List of atomes
 
     Returns:
-        dictionnaire: Contient les clés (residues, chain and number of
-        residues) et objets (surface)
+        dictionnary: Contaning the keys (residues, chain and number of
+        residues) et objects (surface)
     """
     memoire = {}
     for atom in data:
@@ -59,10 +59,10 @@ def surface_residue(data):
 
 
 def accesible_surface(data):
-    """Compose la table des résultats.
+    """Createthe table of results.
 
     Args:
-        data (List): Liste des atomes
+        data (List): List of atoms
     """
     print("||Calculating relative surface for each residu||")
     table = rich.table.Table(title="Results")
@@ -100,12 +100,14 @@ def accesible_surface(data):
 
 
 def good_print(table, partie, total, phile, phobe):
-    """Affiche les résultats.
+    """Print the results.
 
     Args:
-        table (table): Un tableau contenant les surfaces des résidus
-        partie (float): La surface accésible calculé
-        total (float): La surface maximum accessible de la protéine
+        table (table): A table containing the surfaces of each residues
+        partie (float): ASA calculate of the protein
+        total (float): Max ASA of the protein
+        phile (float): ASA of residue hydrophilic
+        phobe (float): ASA of resiude hydrophobic
     """
     rich.print(table)
     rich.print(f"\n Surface accessible des acides aminées hydrophobe : \

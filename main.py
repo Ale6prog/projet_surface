@@ -4,9 +4,10 @@ Usage:
 ======
     python main.py -p name -d points -r sonde
 
-    name: un fichier pdb
-    points: Nombre de points par atome (par défaut 92)
-    sonde : rayon de la sonde (par défaut 1.4 A)
+    name: a file .pdb
+    points: Number of point by atome(par défaut 92)
+    sonde : Radius of the probe (par défaut 1.4 A)
+    model : Number of the model (for NMR only)
 
 """
 
@@ -20,12 +21,12 @@ import calcul
 
 
 def main(pdb, nbr, probe, model):
-    """Fonction principale.
+    """Main Function.
 
     Args:
-        pdb (str): Nom du fichier pdb
-        nbr (int): Nombre de point par atome
-        probe (float): Rayon de la sonde utilisé
+        pdb (str): Name of the file pdb
+        nbr (int): Number of point by atome
+        probe (float): Radius of the probe 
     """
     data = []
     input.extract_data(pdb, data, nbr, model)
@@ -35,8 +36,8 @@ def main(pdb, nbr, probe, model):
 
 
 if __name__ == '__main__':
-    # récupére les arguments de la fonction
+    # Get the arguments 
     result_args = input.parse_argument()
-    # lance la fonction principale
+    # Run main
     main(result_args.pdb[0], result_args.nbr, result_args.probe,
          result_args.modele)

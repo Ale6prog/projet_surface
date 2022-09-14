@@ -1,4 +1,4 @@
-"""Extraction, mise en forme et création des Atom de la protéine."""
+"""Extracting, cleaning and creating the Atoms of the protein."""
 import argparse
 import Bio.PDB
 import atome
@@ -6,7 +6,7 @@ import sys
 
 
 def parse_argument():
-    """Permet de récupérer les arguments de la commande dans le terminal."""
+    """Get the arguments of the commands in the terminal"""
     parser = argparse.ArgumentParser(description="Calcul de la surface \
                                             accessible d'une protéine")
     parser.add_argument("-p", dest="pdb", help="Nom du fichier pdb", nargs=1)
@@ -23,13 +23,13 @@ def parse_argument():
 
 
 def mise_res(residue):
-    """Extrait le code à 3 lettres du résidue.
+    """Extract the 3 letters code of the residue.
 
     Args:
-        residue (str): String extrait par .get__parent() de PDB
+        residue (str): String extract by .get__parent() 
 
     Returns:
-        str: Code à 3 lettres du résidues
+        str: 3 letters code
     """
     residue = residue.replace("<Residue", "")
     residue = residue[0:4]
@@ -37,13 +37,13 @@ def mise_res(residue):
 
 
 def mise_num(nom, chain):
-    """Extrait le numéro du résidu par atom.
+    """Extract the number and the chain of the residue by atom.
 
     Args:
-        nom (str): String extrait par .get__parent() de PDB
+        nom (str): String extract by .get__parent() 
 
     Returns:
-        str: Numéro du résidu
+        str: Number of the residue and the chain
     """
     nom = nom.split("resseq=")[1]
     nom = nom.split("icode")[0]
@@ -53,12 +53,12 @@ def mise_num(nom, chain):
 
 
 def extract_proteine(atomes, data, nbr):
-    """Création des objets atomes et ajout des objets à la list data.
+    """Create the objects atomes and add it to the list data.
 
     Args:
-        atomes (generator): Generator contenant la structure de la protéine
-        data (list): List vide
-        nbr (int): Nombre de point par atome
+        atomes (generator): Generator that contains the structure of the protein
+        data (list): Empty List
+        nbr (int): Number of point by atome
     """
     acide = ["ALA", "ARG", "ASN", "ASP", "CYS", "GLU", "GLN", "GLY",
              "HIS", "ILE", "LEU", "LYS", "MET", "PHE", "PRO", "SER",
@@ -75,12 +75,12 @@ def extract_proteine(atomes, data, nbr):
 
 
 def extract_data(file, data, nbr, model):
-    """Lecture du fichier pdb et extraction de la structure.
+    """Read the file pdb and extract the structure.
 
     Args:
-        file (str): Nom du fichier pdb
-        data (list): List vide
-        nbr (int): Nombre de point par atome
+        file (str): Name of the file
+        data (list): Empty List 
+        nbr (int): Number of point by atome
     """
     try:
         parser = Bio.PDB .PDBParser()

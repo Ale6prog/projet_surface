@@ -1,10 +1,10 @@
-"""Calcul des coordonnées sphérique et x,y,z des points."""
+"""Calculate the spherical coordinates of points."""
 import math
 
 
 def securite_radius(angle):
     """
-    Retourne -0.9999, 0.9999 ou angle afin d'éviter de diviser par 0.
+    Return -0.9999, 0.9999 or angle to avoid the division 0.
 
     Args:
         angle (float): Angle
@@ -19,14 +19,14 @@ def securite_radius(angle):
 
 
 def algo_saff(nbr):
-    """Retourne les coordonnées sphérique de tous les points d'une sphére.
+    """Return the spherical coordinates of all points of a sphere.
 
     Args:
-        nbr (int): Nombre de point par atome
+        nbr (int): Number of point by atome
 
     Returns:
-        theta (float): Liste des coordonées theta
-        phi (float): Liste des coordonées theta
+        theta (float):  List of the coordinate  theta
+        phi (float): List of the coordinate phi 
     """
     theta = []
     phi = []
@@ -43,18 +43,18 @@ def algo_saff(nbr):
 
 
 def calcul_points(theta, phi, position, rayon, nbr, probe):
-    """Retourne une liste de coordonnées (x,y,z) de points d'un atome.
+    """Reture a list of coordinate (x,y,z) of points of a atom.
 
     Args:
-        theta (float): Coordonées theta
-        phi (float): Coordonées phi
-        position (array): Coordonnées du centre de l'atome
-        rayon (float): Rayon de l'atome
-        nbr (int): Nombre de point sur l'atome
-        probe (float): Rayon de la sonde
+        theta (float): Coordinate theta
+        phi (float): Coordinate phi
+        position (array): Coordinate of the centre of the atom
+        rayon (float): Radius of the atome
+        nbr (int): Number of point by atome
+        probe (float): Radius of a the probe
 
     Returns:
-        list: Liste contenant les coordonées des points d'un atome
+        list: List of the coordinates of all points of a atom
     """
     data = []
     for entier in range(nbr):
@@ -69,12 +69,12 @@ def calcul_points(theta, phi, position, rayon, nbr, probe):
 
 
 def create_point(data, nbr, probe):
-    """Ajoute les coordonnées des points pour chaque atome.
+    """Add the coordinates of points for all the atoms.
 
     Args:
-        data (liste): Liste des atomes
-        nbr (int): Nombre de point sur l'atome
-        probe (float): Rayon de la sonde
+        data (liste): List of atoms
+        nbr (int): Number of point by atome
+        probe (float): Radius of a the probe
     """
     coord_sphere = algo_saff(nbr)
     for atom in data:
