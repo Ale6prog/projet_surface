@@ -15,9 +15,9 @@ To work the program need:
   
   # Use
   In your terminal, write:
-  ```
+```
   python main.py -p nom_de_votre_fichier_pdb
-  ```
+```
   Others arguments may be use:
    - For the number of point by atom
     
