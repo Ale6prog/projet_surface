@@ -24,10 +24,9 @@ To work the program need:
     python main.py -p nom_de_votre_fichier_pdb -d 100
 ```
    - For the radius of the probe
-    
-    ```
+```
         python main.py -p nom_de_votre_fichier_pdb -r 1.5
-    ```
+```
   - For the model to test. Only use this argument when your file was obtain by NMR 
     ```
         python main.py -p nom_de_votre_fichier_pdb -d 100 -m 1
